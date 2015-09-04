@@ -5,7 +5,7 @@ echo '<Response>';
 echo    '<Say voice="woman" language="ja-jp">アンケートをセールスフォースに登録します</Say>';
 echo '</Response>';
 
-require_once ("/soapclient/SforcePartnerClient.php");
+require_once "./soapclient/SforcePartnerClient.php";
 
 // 事前に必要な情報を宣言します。   
   
