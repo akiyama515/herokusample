@@ -2,8 +2,6 @@
 
 require_once ("soapclient/SforcePartnerClient.php");
 
-
-
 // 事前に必要な情報を宣言します。   
   
 // 今回は特定のセールスフォース組織に依存しないような場合に利用する  
@@ -53,9 +51,17 @@ echo _WS_ENDPOINT_."br";
 echo _WS_NAMESPACE_."p";
 
 try {
-
-   // call the web service via post
-  $wsParams=array("2","4");
+  // POSTされたユーザの入力を分割
+  // Parameterが無い場合は終了する
+  if(empty($_POST['Digits'])) {
+      echo "Oh! No Param.";
+      return;
+  } 
+  
+  // call the web service via post
+  $param0 = substr($_POST['Digits'], 0, 1);
+  $param1 = substr($_POST['Digits'], 1, 1);
+  $wsParams=array($param0, $param1);
   $response = $client->createQuestionnaire($wsParams);
   // dump the response to the browser
    print_r($response);
