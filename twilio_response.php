@@ -2,7 +2,7 @@
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
 echo '<Response>';
-echo    '<Say voice="woman" language="ja-jp">ファイルの最初です</Say>';
+echo    '<Say voice="woman" language="ja-jp">アンケートをセールスフォースに登録します</Say>';
 echo '</Response>';
 
 require_once ("soapclient/SforcePartnerClient.php");
@@ -64,9 +64,10 @@ try {
   } 
   
   // call the web service via post
-  $param0 = substr($_POST['Digits'], 0, 1);
-  $param1 = substr($_POST['Digits'], 1, 1);
-  $wsParams=array($param0, $param1);
+//  $param0 = substr($_POST['Digits'], 0, 1);
+//  $param1 = substr($_POST['Digits'], 1, 1);
+//  $wsParams=array($param0, $param1);
+  $wsParams=array("1", "1");
   $response = $client->createQuestionnaire($wsParams);
   // dump the response to the browser
    print_r($response);
