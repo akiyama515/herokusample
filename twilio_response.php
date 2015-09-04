@@ -70,7 +70,7 @@ try {
   $wsParams=array("1", "1");
   $response = $client->createQuestionnaire($wsParams);
   // dump the response to the browser
-   print_r($response);
+//   print_r($response);
 
 // this is really bad.
 } catch (Exception $e) {
@@ -79,3 +79,4 @@ try {
   echo "Ooop! Error: <b>" . $errors . "</b>";
 die;
 }
+?>
