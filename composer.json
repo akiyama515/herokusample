@@ -1,5 +1,5 @@
 {
-    "scripts": {
-        "update": ""
-    }
+  "require": {
+    "ext-soap": "*"
+  }
 }
