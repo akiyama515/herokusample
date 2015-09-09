@@ -50,10 +50,10 @@ $sforce_header = new SoapHeader(_WS_NAMESPACE_, "SessionHeader", array("sessionI
 $client->__setSoapHeaders(array($sforce_header));
 
 
-echo _WS_NAME_."br";  
+//echo _WS_NAME_."br";  
 //echo _WS_WSDL_."br";  
-echo _WS_ENDPOINT_."br";  
-echo _WS_NAMESPACE_."p";
+//echo _WS_ENDPOINT_."br";  
+//echo _WS_NAMESPACE_."p";
 
 try {
   // POSTされたユーザの入力を分割
