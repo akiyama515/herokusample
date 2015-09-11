@@ -2,7 +2,7 @@
   "require": {
     "php": "5.6.13",
     "ext-soap": "*"
-  }
+  },
   "require-dev": {
     "heroku/heroku-buildpack-php": "*"
   }
