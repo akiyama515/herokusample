@@ -2,8 +2,7 @@
   header("content-type: text/xml");
   
   $answer1 = $_POST['Digits'];
-  
-//  echo '■■■Answer1の回答は■■■';
+  var_dump($answer1);
 ?>
 
 <Response>
