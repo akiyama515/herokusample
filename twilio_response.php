@@ -1,14 +1,23 @@
 <?php
+  header("content-type: text/xml");
+  
+  $answer1 = $_POST['Digits'];
+  $tel_from = $_POST['From'];
+?>
 
-echo '<?xml version="1.0" encoding="UTF-8"?>';
-//echo '<Response>';
-//echo    '<Say voice="woman" language="ja-jp">アンケートをセールスフォースに登録します</Say>';
-//echo '</Response>';
+<Response>
+  <Say voice="woman" language="ja-jp">
+    質問2   興味を持った部署がかんソ部の人は1を。。産ソ部の人は2を。。金ソ部の人は3を。。ソ部の人は4を。押してください
+  </Say>
+  <Gather timeout="60" numDigits="1">
+</Response>
 
+
+<?php
+// Salesforceへの登録処理
+// 事前に必要な情報を宣言します
 require_once dirname(__FILE__) . '/soapclient/SforcePartnerClient.php';
 
-// 事前に必要な情報を宣言します。   
-  
 // 今回は特定のセールスフォース組織に依存しないような場合に利用する  
 // Partner WSDL ファイルを利用します。  
 define("PARTNER_WSDL_FILE", "./configs/partner.wsdl.xml");
@@ -19,8 +28,8 @@ define("WS_TWILIO_WSDL_FILE", "./configs/WS_TwilioDemo.wsdl.xml");
 define("SECURITY_TOKEN", "i695PQ92Vqxj8AWp2fqlBzVX0");   
   
 // API でログインするセールスフォースのアカウントです。  
-define("LOGIN_ID", "sis_developer_twilio@sisinc.co.jp.dev");  
-  
+define("LOGIN_ID", "sis_twilio@sisinc.co.jp.dev");  
+
 // パスワードの後ろにセキュリティトークンを付けます。  
 define("LOGIN_PASS", "sis-515user" . SECURITY_TOKEN);   
 
@@ -41,19 +50,12 @@ try {
 $parsedURL = parse_url($sforce_connection->getLocation());
 define ("_SFDC_SERVER_", substr($parsedURL['host'],0,strpos($parsedURL['host'], '.')));  
 define ("_WS_NAME_", "WS_TwilioDemo");  
-//define ("_WS_WSDL_", "sfdc/" . _WS_NAME_ . ".wsdl.xml");  
 define ("_WS_ENDPOINT_", 'https://login.salesforce.com/services/wsdl/class/' . _WS_NAME_);  
 define ("_WS_NAMESPACE_", 'http://soap.sforce.com/schemas/class/' . _WS_NAME_);
 
 $client = new SoapClient(WS_TWILIO_WSDL_FILE);
 $sforce_header = new SoapHeader(_WS_NAMESPACE_, "SessionHeader", array("sessionId" => $sforce_connection->getSessionId()));
 $client->__setSoapHeaders(array($sforce_header));
-
-
-//echo _WS_NAME_."br";  
-//echo _WS_WSDL_."br";  
-//echo _WS_ENDPOINT_."br";  
-//echo _WS_NAMESPACE_."p";
 
 try {
   // POSTされたユーザの入力を分割
@@ -64,22 +66,17 @@ try {
   } 
   
   // call the web service via post
-  $param0 = substr($_POST['Digits'], 0, 1);
-  $param1 = substr($_POST['Digits'], 1, 1);
-  $wsParams=array($param0, $param1);
-//print_r($_POST['Digits'])
+  $wsParams=array($answer1, $_POST['Digits']);
   $response = $client->createQuestionnaire($wsParams);
   echo '<Response>';
-  echo    '<Say voice="woman" language="ja-jp">セールスフォースに登録しました。ご協力ありがとうございます。</Say>';
+  echo    '<Say voice="woman" language="ja-jp">セールスフォースに登録しました。アンケートの協力ありがとうございます。</Say>';
   echo '</Response>';
-  // dump the response to the browser
-//   print_r($response);
 
 // this is really bad.
 } catch (Exception $e) {
   global $errors;
   $errors = $e->faultstring;
   echo "Ooop! Error: <b>" . $errors . "</b>";
-die;
+  die;
 }
 ?>
