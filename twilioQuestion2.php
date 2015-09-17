@@ -2,6 +2,7 @@
   header("content-type: text/xml");
   
   $answer1 = $_POST['Digits'];
+  echo $answer1;
 //  $tel_from = $_POST['From'];
 ?>
 
