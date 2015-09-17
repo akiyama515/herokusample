@@ -1,7 +1,7 @@
 <?php
   header("content-type: text/xml");
   
-  $POST[Answer1] = $_POST['Digits'];
+  $POST['Answer1'] = $_POST['Digits'];
 //  $tel_from = $_POST['From'];
 ?>
 
