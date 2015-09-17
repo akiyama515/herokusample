@@ -64,10 +64,10 @@ try {
   } 
   
   // call the web service via post
-//  $param0 = substr($_POST['Digits'], 0, 1);
-//  $param1 = substr($_POST['Digits'], 1, 1);
-//  $wsParams=array($param0, $param1);
-  $wsParams=array("1", "1");
+  $param0 = substr($_POST['Digits'], 0, 1);
+  $param1 = substr($_POST['Digits'], 1, 1);
+  $wsParams=array($param0, $param1);
+//  $wsParams=array("1", "1");
   $response = $client->createQuestionnaire($wsParams);
   // dump the response to the browser
 //   print_r($response);
