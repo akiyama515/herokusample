@@ -1,9 +1,9 @@
 <?php
 
 echo '<?xml version="1.0" encoding="UTF-8"?>';
-echo '<Response>';
-echo    '<Say voice="woman" language="ja-jp">アンケートをセールスフォースに登録します</Say>';
-echo '</Response>';
+//echo '<Response>';
+//echo    '<Say voice="woman" language="ja-jp">アンケートをセールスフォースに登録します</Say>';
+//echo '</Response>';
 
 require_once dirname(__FILE__) . '/soapclient/SforcePartnerClient.php';
 
@@ -69,6 +69,9 @@ try {
   $wsParams=array($param0, $param1);
 //  $wsParams=array("1", "1");
   $response = $client->createQuestionnaire($wsParams);
+  echo '<Response>';
+  echo    '<Say voice="woman" language="ja-jp">セールスフォースに登録しました。ご協力ありがとうございます。</Say>';
+  echo '</Response>';
   // dump the response to the browser
 //   print_r($response);
 

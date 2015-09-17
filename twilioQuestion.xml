@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<Gather timeout="60" numDigits="2" action="twilio_response.php">
+<Gather timeout="60" numDigits="1" action="twilioQuestion2.xml" method="GET">
      <Say voice="woman" language="ja-jp">
          ソリューション展示会のアンケートを開始します
      </Say>
      <Say voice="woman" language="ja-jp">
          質問1 1年目から10年目の人は1を。。11年目から20年目の人は2を。。21年目以上の人は3を押してください。
-     </Say>
-     <Pause length="2"/>
-     <Say voice="woman" language="ja-jp">
-         質問2   興味を持った部署がかんソ部の人は1を。。産ソ部の人は2を。。金ソ部の人は3を。。ソ部の人は4を。押してください
      </Say>
 </Gather>
 </Response>
