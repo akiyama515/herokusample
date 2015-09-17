@@ -3,7 +3,7 @@
   
   $answer1 = $_POST['Digits'];
   
-  echo '■■■Answer1の回答は■■■';
+//  echo '■■■Answer1の回答は■■■';
 ?>
 
 <Response>
