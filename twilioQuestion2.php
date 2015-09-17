@@ -1,7 +1,7 @@
 <?php
-  header("content-type: text/xml");
+//  header("content-type: text/xml");
   
-//  var_dump($_POST);
+  var_dump($_POST);
 
   $answer1 = $_POST['Digits'];
 
