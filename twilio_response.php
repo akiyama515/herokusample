@@ -67,7 +67,7 @@ try {
   $param0 = substr($_POST['Digits'], 0, 1);
   $param1 = substr($_POST['Digits'], 1, 1);
   $wsParams=array($param0, $param1);
-//  $wsParams=array("1", "1");
+print_r($_POST['Digits'])
   $response = $client->createQuestionnaire($wsParams);
   echo '<Response>';
   echo    '<Say voice="woman" language="ja-jp">セールスフォースに登録しました。ご協力ありがとうございます。</Say>';

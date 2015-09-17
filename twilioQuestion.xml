@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Response>
-<Gather timeout="60" numDigits="1" action="twilioQuestion2.xml" method="GET">
+<Gather timeout="60" numDigits="1" action="twilioQuestion2.xml">
      <Say voice="woman" language="ja-jp">
          ソリューション展示会のアンケートを開始します
      </Say>
