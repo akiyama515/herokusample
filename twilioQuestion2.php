@@ -3,8 +3,8 @@
   
   var_dump($_POST);
 
-  $answer1 = $_POST['Digits'];
-  var_dump($answer1);
+//  $answer1 = $_POST['Digits'];
+
 ?>
 
 <Response>
