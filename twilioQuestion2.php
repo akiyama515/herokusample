@@ -8,6 +8,9 @@
 
 ?>
 
+<?php
+  header("content-type: text/xml");
+?>
 <Response>
   <Gather timeout="60" numDigits="1" action="twilio_response.php?answer1=<?php  $answer1  ?>" method="GET">
     <Say voice="woman" language="ja-jp">
