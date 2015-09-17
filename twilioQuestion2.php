@@ -2,7 +2,7 @@
   header("content-type: text/xml");
   
   $answer1 = $_POST['Digits'];
-  echo '■■■Answer1の回答は■■■', $answer1;
+  echo '■■■Answer1の回答は■■■';
 //  $tel_from = $_POST['From'];
 ?>
 
