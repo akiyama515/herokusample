@@ -43,9 +43,9 @@ $sforce_header = new SoapHeader(_WS_NAMESPACE_, "SessionHeader", array("sessionI
 $client->__setSoapHeaders(array($sforce_header));
 
 try {
-  // POSTされたユーザの入力を分割
+  // GETされたユーザの入力を分割
   // Parameterが無い場合は終了する
-  if(empty($_POST['Digits'])) {
+  if(empty($_GET['Digits'])) {
       echo "Oh! No Param.";
       return;
   } 
