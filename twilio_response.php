@@ -51,7 +51,7 @@ try {
   } 
   
   // call the web service via post
-  $wsParams=array($_GET['answer1'], $_GET['Digits']);
+  $wsParams=array($_GET['From'], $_GET['answer1'], $_GET['Digits']);
   $response = $client->createQuestionnaire($wsParams);
   echo '<Response>';
   echo    '<Say voice="woman" language="ja-jp">セールスフォースに登録しました。アンケートの協力ありがとうございます。</Say>';
